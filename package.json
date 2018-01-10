@@ -27,5 +27,15 @@
     "gulp",
     "src",
     "stuff"
-  ]
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "none",
+    "tasks": [
+      "readme"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
 }

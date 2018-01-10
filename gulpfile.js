@@ -1,11 +1,19 @@
 'use strict';
 
+var path = require('path');
+
 const gulp = require('gulp');
 
 gulp.task('default', () => {
   return gulp.src([
-    'src/_scripts/**/*',
-    '!src/_scripts/{**/\_*,**/\_*/**}',
+    path.join('src','_scripts','/**/*'),
+    '!'+path.join('src','_scripts','/{**/\_*,**/\_*/**}'),
   ])
-  .pipe(gulp.dest('app/scripts'));
+  .pipe(gulp.dest(path.join('app','scripts')));
+});
+
+gulp.task('watch', (done) => {
+  gulp.watch([path.join('src','_scripts/**/*')])
+  .on('change', gulp.series('default'));
+  done();
 });
